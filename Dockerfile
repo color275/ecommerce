@@ -39,10 +39,19 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 # echo "HOST_IP=${HOST_IP}" >> .env
 # echo "HOST_NAME=${HOST_NAME}" >> .env
 
-
-# export BUSER="appuser"
+# LOCAL DOCKER
+# export DBUSER="appuser"
 # export PASSWORD="Appuser12#$"
 # export HOST="host.docker.internal"
+# export PORT="3306"
+# export DBNAME="ecommerce"
+# export HOST_NAME=$(hostname)
+# export HOST_IP=$(hostname -I | awk '{print $1}')
+
+# LOCAL 
+# export DBUSER="appuser"
+# export PASSWORD="Appuser12#$"
+# export HOST="localhost"
 # export PORT="3306"
 # export DBNAME="ecommerce"
 # export HOST_NAME=$(hostname)
