@@ -12,6 +12,7 @@ import os
 
 from domain.customer import customer_router
 from domain.product import product_router
+from domain.order import order_router
 
 app = FastAPI()
 
@@ -20,6 +21,7 @@ session = engine.sessionmaker()
 
 app.include_router(customer_router.router)
 app.include_router(product_router.router)
+app.include_router(order_router.router)
 
 @app.get("/")
 async def docs():    

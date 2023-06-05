@@ -12,7 +12,7 @@ session = engine.sessionmaker()
 
 @router.get("/")
 async def get_all():
-    result = session.query(Customer).all()
+    result = session.query(Product).all()
     return result
 
 @router.get("/{id}")
