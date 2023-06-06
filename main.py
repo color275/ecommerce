@@ -13,8 +13,23 @@ import os
 from domain.customer import customer_router
 from domain.product import product_router
 from domain.order import order_router
+from starlette.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
+
+origins = [
+    "http://127.0.0.1:8000",    # 또는 "http://localhost:5173"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 engine = engineconn()
 session = engine.sessionmaker()

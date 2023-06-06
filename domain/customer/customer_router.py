@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from fastapi import HTTPException
 from models import *
 from database import engineconn
+from config import host
 
 router = APIRouter(
     prefix="/api/customer",
@@ -24,5 +25,7 @@ async def get_customer(id: int):
 
     customer_dict = customer.__dict__
     customer_dict.pop("_sa_instance_state")  # SQLAlchemy 내부 상태 정보 제거
+
+    customer_dict.update(host())
 
     return customer_dict

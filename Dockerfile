@@ -56,6 +56,9 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 # export DBNAME="ecommerce"
 # export HOST_NAME=$(hostname)
 # export HOST_IP=$(hostname -I | awk '{print $1}')
+# export ORDER_SERVICE="localhost"
+# export CUSTOMER_SERVICE="localhost"
+# export PRODUCT_SERVICE="localhost"
 
 # # 삭제
 # docker stop $(docker ps -a -q)

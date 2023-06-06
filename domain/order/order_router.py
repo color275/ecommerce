@@ -4,6 +4,7 @@ from models import *
 from database import engineconn
 from datetime import datetime
 import random
+from config import host
 
 router = APIRouter(
     prefix="/api/order",
@@ -26,6 +27,7 @@ async def get_order(id: int):
 
     order_dict = order.__dict__
     order_dict.pop("_sa_instance_state")  # SQLAlchemy 내부 상태 정보 제거
+    order_dict.update(host())
 
     return order_dict
 
@@ -60,5 +62,8 @@ async def order(customer_id: int, product_id: int):
     session.add(order)
     session.commit()
     # session.refresh(order)
+
+    msg = {"message": "Order placed successfully"}
+    msg.update(host())
     
-    return {"message": "Order placed successfully"}
+    return msg
